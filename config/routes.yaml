@@ -3,3 +3,9 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+cart_show:
+    path: /cart
+    controller: App\Controller\CartController::show
+
+    

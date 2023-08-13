@@ -1,0 +1,103 @@
+@font-face {
+    font-family: 'RozhaOne';
+    src: url('/Assets/Fonts/RozhaOne-Regular.ttf') format('truetype'); /* Spécifiez le format du fichier de police */
+    
+}
+
+@font-face {
+    font-family: 'AvenirLight';
+    src: url('/Assets/Fonts/FontsFree-Net-Avenir-Light.ttf') format('truetype'); /* Spécifiez le format du fichier de police */
+    
+}
+
+/* *****************************panier******************************************************* */
+.cart-slider {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Le panier est positionné hors de la vue à droite */
+    width: 400px;
+    height: 100%;
+    background-color: white;
+    /* box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1); */
+    transition: right 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out;
+    font-family: 'AvenirLight', sans-serif;
+  }
+  
+  .cart-slider.open {
+    right: 0; /* Le panier est déplacé vers la vue lorsqu'il est ouvert */
+  }
+  
+  /* ... Vos styles CSS existants ... */
+
+#panier{
+    /* border: solid 1px black; */
+width: 100%;
+height: 15vh;
+background-color: #7B33AD;
+color: white;
+font-size: 1.5em;
+display: flex;
+align-items: center;
+}
+
+#panier > * {
+    margin: 0 10%; /* Ajustez la valeur de la marge selon vos besoins */
+  }
+
+#panier h3{
+    font-weight: lighter;
+}
+
+/* Styles spécifiques pour l'icône de flèche (panier) */
+#cart-link {
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease-in-out; /* Ajoute une transition fluide pour la rotation */
+}
+
+#cart-link::before {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%) rotate(45deg) scale(1, 1); /* Initial state: flèche orientée vers la droite */
+    transition: transform 0.3s ease-in-out; /* Ajoute une transition fluide pour la rotation */
+}
+
+#cart-link.open::before {
+    transform: translateY(-50%) rotate(-135deg) scale(1, -1); /* Flèche inversée lorsque le panier est ouvert */
+}
+
+#cart-link #cart-icon {
+    display: inline-block;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out; /* Ajoute une transition pour l'opacité */
+}
+
+#cart-link.open #cart-icon {
+    opacity: 0; /* Cache le texte lorsqu'ouvert */
+}
+
+.cart-slider::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 71em;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1); /* Couleur d'arrière-plan semi-transparente */
+    z-index: -1; /* Placez le fond sous le contenu du panier */
+    display: none; /* Masquez initialement le fond */
+    transition: opacity 0.3s ease-in-out; /* Ajoute une transition d'opacité pour un effet fluide */
+}
+
+.cart-slider.open::before {
+    display: block; /* Affichez le fond lorsque le panier est ouvert */
+}
+
+/* ***********************************panier fin************************************************** */

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheets %}    
+<link rel="stylesheet" href="/Assets/CSS/cartshow.css" />
+{% endblock %}
+
+{% block javascripts %}
+<script src="/Assets/JS/script.js"></script>
+{% endblock %}
+
+{% block cartItemCount %}
+    {% if cartItemCount > 0 %}
+        ({{ cartItemCount }})
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+<div class="cart-slider {% if isCartOpen %}open{% endif %}">
+    <div class="cart-content">
+        <div id="panier"><button onclick="toggleCart()" id="cart-link"><img src="\Assets\Images\angle-droit.png" alt=""id="cart-icon"></button>
+        <h3>Panier</h3>
+        </div>
+        <ul>
+            {% for item in cartItems %}
+                <li>{{ item.name }} - {{ item.price }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

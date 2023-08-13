@@ -1,19 +1,113 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta  http-equiv =" X-UA-Compatible " content =" chrome=1 ">
+    <title>{% block title %}Atelier Louisiane Cloison{% endblock %}</title>
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/Assets/CSS/style.css" />
+    <link rel="stylesheet" href="/Assets/CSS/footer.css" />
+{% block stylesheets %}{% endblock %}
+
+    {% block javascripts %}
+    <script src="/Asset/JS/header.js"></script>
+{% endblock %}
+</head>
+
+
+<header>
+<div>
+<div><p>Atelier Louisiane Cloison</p><a href="{{ path('cart_show') }}"><img src="\Assets\Images\Shopping_Bag.png" alt="">{% block cartItemCount %}{% endblock %}</a></div>
+    <nav id='menu'>
+        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+        <ul>
+            <li><a href='{{ path('app_home') }}'>Acceuil    </a></li>
+            <li><a class='' href='#'>À propos </a></li>
+            <li><a class='' href='#'>Boutique</a></li>
+            <li><a href=""><img src="/Images/github.png" alt="">
+            </a></li>
+
+
+            {# {% if app.user %}
+            <li><a href='{{ path('app_message') }}'>Messagerie</a></li>
+            {% endif %} #}
+        </ul>
+
+        <div class ="gauche">
+        <ul>
+         {# {% if app.user != true %}
+                    <li>
+                        <a href="{{ path('app_register') }}">S'inscrire</a>
+                    </li>
+                    
+                    <li>
+                        <a href="{{ path('app_login') }}">Se connecter</a>
+                    </li>
+                    {% endif %}
+
+    {% if app.user %}
+        <li>
+            <a href="{{ path('app_logout') }}">Déconnexion</a>
+            </li>
+    {% endif %} #}
+        </ul>
+        </div>
+    </nav>
+</div>
+</header>
+{% block body %}
+<body>
+
+
+
+
+</body>
+{% endblock %}
+<footer>
+<div class="bottom">
+<div class="ftr">
+<a href="#"><p>Application Mobile</p></a>
+<a href="#"><p>Communauté</p></a>
+<a href="#"><p>Entreprise</p></a>
+</div>
+
+<div class="ftr">
+<a href="{{ path('app_home') }}"><p>Home</p></a>
+</div>
+
+<div class="ftr">
+<a href="#"><p>Aide</p></a>
+<a href="#"><p>Nous Contacter</p></a>
+<a href="#"><p>Ressources</p></a>
+</div>
+</div>
+
+<br>
+<br>
+<hr>
+<br>
+<br>
+<br>
+<br>
+
+<div>
+<div class="link">
+<a href="https://github.com/riadghub"><img src="/Images/github.png" alt=""></a>
+<a href="https://www.linkedin.com/in/riad-e-33a802136/"><img src="/Images/linkedin.png" alt=""></a>
+<a href="https://www.linkedin.com/in/louisianecloison/"><img src="/Images/icon _linkedin_.png" alt=""></a>
+<a href="https://github.com/CLouiseGZB"><img src="/Images/icon _github_.png" alt=""></a>
+</div>
+
+<br>
+<br>
+
+<div class="link">
+<p>©Louisiane Cloison & Riad Eeer Aalla 2023</p>
+</div>
+</div>
+</footer>
 </html>
